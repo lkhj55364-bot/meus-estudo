@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Central de Estudos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Barra Lateral -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon"><i class="ri-book-fill"></i></div>
+                <span>Estudos Pro</span>
+            </div>
+            
+            <div class="menu-section">
+                <p class="menu-label">MINHAS MATÉRIAS</p>
+                <ul id="subject-list"></ul>
+                <button class="add-btn" onclick="createNewSubject()">
+                    <i class="ri-add-line"></i> Criar Matéria
+                </button>
+            </div>
+        </aside>
+
+        <!-- Área Principal -->
+        <main class="main-content">
+            <header class="header">
+                <h1 id="view-title">Bem-vindo</h1>
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="search-input" placeholder="Buscar em meus arquivos..." oninput="filterFiles()">
+                </div>
+            </header>
+
+            <!-- Tela Inicial -->
+            <div id="empty-state" class="empty-state">
+                <i class="ri-mickey-line"></i>
+                <h2>Sua biblioteca está vazia</h2>
+                <p>Crie uma matéria na barra lateral para começar a organizar seus PDFs.</p>
+            </div>
+
+            <!-- Grade de Tópicos -->
+            <div id="topics-grid" class="topics-grid" style="display: none;"></div>
+        </main>
+    </div>
+
+    <!-- Visualizador de PDF -->
+    <div id="pdf-viewer" class="pdf-viewer">
+        <div class="pdf-nav">
+            <span id="pdf-name-display">Documento</span>
+            <button onclick="closeViewer()"><i class="ri-close-line"></i> Fechar</button>
+        </div>
+        <iframe id="pdf-frame"></iframe>
+    </div>
+
+    <!-- Input Invisível -->
+    <input type="file" id="global-file-input" accept=".pdf" style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html>
